@@ -1,9 +1,9 @@
 package com.amenon848.firstexample.company;
 
 import com.amenon848.firstexample.job.Job;
+import com.amenon848.firstexample.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.apache.tomcat.Jar;
 
 import java.util.List;
 
@@ -20,6 +20,17 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     public Company() {
     }
